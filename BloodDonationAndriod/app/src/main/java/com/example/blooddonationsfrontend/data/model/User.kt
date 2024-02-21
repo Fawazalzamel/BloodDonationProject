@@ -1,4 +1,4 @@
-package com.example.blooddonationsfrontend.data
+package com.example.blooddonationsfrontend.data.model
 
 data class User(
     var username: String,

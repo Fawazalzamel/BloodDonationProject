@@ -11,16 +11,21 @@ import com.example.blooddonationsfrontend.data.AccountPage
 import com.example.blooddonationsfrontend.data.DonationRequest
 import com.example.blooddonationsfrontend.data.SigninRequest
 import com.example.blooddonationsfrontend.data.User
+import com.example.blooddonationsfrontend.data.model.User
 import com.example.blooddonationsfrontend.data.response.TokenResponse
 import com.example.blooddonationsfrontend.network.DonationApiServices
 import com.example.blooddonationsfrontend.network.RetrofitHelper
+import com.example.blooddonationsfrontend.utils.enums.BloodTypes
+import com.example.blooddonationsfrontend.utils.enums.Gender
 import kotlinx.coroutines.launch
 
 class DonationViewModel : ViewModel() {
     private val apiService = RetrofitHelper.getInstance().create(DonationApiServices::class.java)
     var myToken: TokenResponse? by mutableStateOf(null)
     var user: User? by mutableStateOf(null)
+    var donationsList: List<DonationRequest>? by mutableStateOf(null)
     var context: Context? = null
+
 
     fun signup(
         username: String,
@@ -81,9 +86,9 @@ class DonationViewModel : ViewModel() {
             } catch (e: Exception) {
                 println("Error $e")
 
-            }
-
         }
+
+     }
     }
 
 
@@ -113,6 +118,32 @@ class DonationViewModel : ViewModel() {
 
         }
     }
+
+    fun getAllDonations(){
+        viewModelScope.launch {
+            try {
+                donationsList=apiService.getDonations()
+
+            }catch (e:Exception){
+
+            }
+        }
+    }
+    // review this
+
+//    fun deleteRequest(deleteId:Int){
+//        viewModelScope.launch {
+//            val response = apiService.deleteRequest(deleteId)
+//            if (response.isSuccessful){
+//
+//            }else{
+//
+//            }
+//        }
+//    }
+//Don't forget to add it to the request page
+
+
 
     fun saveToken() {
         val sharedPref = context?.getSharedPreferences("tokenFile", Context.MODE_PRIVATE)

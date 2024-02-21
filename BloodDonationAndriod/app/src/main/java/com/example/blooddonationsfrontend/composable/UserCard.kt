@@ -2,6 +2,7 @@ package com.example.blooddonationsfrontend.composable
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -23,8 +24,6 @@ import com.example.blooddonationsfrontend.R
 fun UserCard(
     userName: String,
     userBlood: String,
-    userDivision: String,
-    userDistrict: String,
     userPhone: String
 ) {
     Card(
@@ -37,11 +36,15 @@ fun UserCard(
             //.align(LineHeightStyle.Alignment.Top)
     ) {
         Column(modifier = Modifier.padding(7.dp)) {
+
+            Spacer(modifier = Modifier.height(16.dp))
             Text(
                 text = userName,
                 color = Color.Gray,
                 fontSize = 20.sp
             )
+            Spacer(modifier = Modifier.height(26.dp))
+
             Text(
                 text = userBlood,
                 color = Color.Gray,
@@ -49,18 +52,8 @@ fun UserCard(
                 fontWeight = FontWeight.Bold
             )
             Row(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = userDivision,
-                    color = Color.Gray,
-                    fontSize = 20.sp,
-                    modifier = Modifier.weight(1f)
-                )
-                Text(
-                    text = userDistrict,
-                    color = Color.Gray,
-                    fontSize = 20.sp,
-                    modifier = Modifier.weight(1f)
-                )
+
+
             }
             Row(modifier = Modifier.weight(1f)) {
                 Text(
@@ -70,7 +63,7 @@ fun UserCard(
                     modifier = Modifier.weight(1f)
                 )
                 Image(
-                    painter = painterResource(id = R.drawable.blood),
+                    painter = painterResource(id = R.drawable.bloodtest),
                     contentDescription = null,
                     modifier = Modifier
                         .size(160.dp)
@@ -87,8 +80,6 @@ fun UserCardPagePreview() {
     UserCard(
         userName = "Maha Awadh",
         userBlood = "A+",
-        userDivision = "kuwait 1",
-        userDistrict = " almsayel A",
         userPhone = "123-456-7890"
     )
 }

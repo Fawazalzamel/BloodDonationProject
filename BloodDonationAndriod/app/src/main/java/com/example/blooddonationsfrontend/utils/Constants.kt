@@ -10,6 +10,8 @@ class Constants {
         const val accountEndpoint = "{id}"//needs checking
         const val updateEndpoints = "{id}/updateProfile"
         const val requestEndpoint = "donation/create"
+        const val getDonationsEndpoint="getAllRequests"
+//        const val deleteRequestEndpoint="/{id}/delete"
 
 
         // Don't touch please this is used for the token name in the header
