@@ -28,12 +28,12 @@ fun UserCard(
     userPhone: String
 ) {
     Card(
-        // backgroundColor = Color.LightGray,
+        //backgroundColor = Color.LightGray,
         shape = RoundedCornerShape(12.dp),
         // elevation = 8.dp,
         modifier = Modifier
             .padding(2.dp)
-            .height(200.dp)
+            .height(150.dp)
             //.align(LineHeightStyle.Alignment.Top)
     ) {
         Column(modifier = Modifier.padding(7.dp)) {
