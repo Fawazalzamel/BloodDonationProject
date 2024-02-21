@@ -1,5 +1,8 @@
 package com.example.blooddonationsfrontend.network
 
+import com.example.blooddonationsfrontend.data.AccountPage
+import com.example.blooddonationsfrontend.data.DonationRequest
+import com.example.blooddonationsfrontend.data.SigninRequest
 import com.example.blooddonationsfrontend.data.User
 import com.example.blooddonationsfrontend.data.response.TokenResponse
 import com.example.blooddonationsfrontend.utils.Constants
@@ -8,19 +11,25 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.PUT
 
 interface DonationApiServices {
     @POST(Constants.signupEndpoint)
     suspend fun signup(@Body user: User): Response<TokenResponse>
 
     @POST(Constants.signinEndpoint)
-    suspend fun signin(@Body user: User): Response<TokenResponse>
+    suspend fun signin(@Body signinRequest: SigninRequest): Response<TokenResponse>
+    @POST(Constants.requestEndpoint)
+    suspend fun donationRequest(@Body donationRequest: DonationRequest):Response<DonationRequest>
+
 
     @GET(Constants.accountEndpoint)
     suspend fun getAccount(@Header(Constants.authorization) token: String?): Response<User>
 
-
-
-
+    @PUT(Constants.updateEndpoints)
+    suspend fun updateAccount(
+        @Header(Constants.authorization) token: String?,
+        @Body accountPage: AccountPage
+    ): Response<Unit>
 
 }

@@ -1,8 +1,8 @@
 package com.example.blooddonationsfrontend.data
 
 data class ResearchResults(
-    var id: String,
-    var researchPaperURL: String,
+    var id: Long,
+    var title: String,
     var description: String,
-    var tittle: String
+    var researchURL: String
 )
