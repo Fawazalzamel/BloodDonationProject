@@ -1,4 +1,4 @@
-package com.example.blooddonationsfrontend.utils
+package com.example.blooddonationsfrontend.utils.enums
 
 enum class ResearchPurposeDonation {
     CANCER_RESEARCH,

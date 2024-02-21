@@ -3,12 +3,15 @@ package com.example.blooddonationsfrontend.utils
 class Constants {
     companion object {
 
-        const val baseUrl = "" //fix this
+        const val baseUrl = "http://10.0.2.2:8080/api/v1"
+        const val signupEndpoint = "/signup"
+        const val signinEndpoint = "/login"
+        const val accountEndpoint = "/{id}"//needs checking
+        const val authorization = "/auth"
+        const val updateEndpoints = "/{id}/updateProfile"
+        const val requestEndpoint = "/donation/create"
 
-        const val signupEndpoint = "signup"
-        const val signinEndpoint = "signin"
-        const val accountEndpoint = "account"
-        const val authorization = "Authorization"
+        //create logout
 
     }
 }
