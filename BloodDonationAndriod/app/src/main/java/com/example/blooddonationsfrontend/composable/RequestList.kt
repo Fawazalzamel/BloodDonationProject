@@ -27,51 +27,35 @@ import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun RequestList() {
+fun RequestList(onClick: (Int) -> Unit) {
     val searchText = remember { mutableStateOf("") }
-    Scaffold(
-        floatingActionButton = {
-            FloatingActionButton(
-                onClick = { /* Handle button click */ },
-                containerColor = Color.Red,
-                contentColor = Color.White
-            ) {
-                Icon(
-                    imageVector = Icons.Default.Add,
-                    contentDescription = "Add Request"
+
+    Column(modifier = Modifier.fillMaxSize()) {
+        TextField(
+            value = searchText.value,
+            onValueChange = { newText -> searchText.value = newText },
+            label = { Text("Search Here") },
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = LightGray,
+                unfocusedContainerColor = LightGray,
+                disabledContainerColor = LightGray,
+                focusedIndicatorColor = Color.Transparent,
+                unfocusedIndicatorColor = Color.Transparent,
+                disabledIndicatorColor = Color.Transparent,
+            ),
+            modifier = Modifier
+                .padding(12.dp, 16.dp)
+                .fillMaxWidth(),
+            keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+            textStyle = LocalTextStyle.current.copy(color = White)
+        )
+        LazyColumn {
+            items(10) { index ->
+                UserCard(
+                    userName = "User $index",
+                    userBlood = "O+",
+                    userPhone = "123-456-7890"
                 )
-            }
-        }
-    ) {
-        Column(modifier = Modifier.fillMaxSize().padding(it)) {
-            TextField(
-                value = searchText.value,
-                onValueChange = { newText -> searchText.value = newText },
-                label = { Text("Search Here") },
-                colors = TextFieldDefaults.colors(
-                    focusedContainerColor = LightGray,
-                    unfocusedContainerColor = LightGray,
-                    disabledContainerColor = LightGray,
-                    focusedIndicatorColor = Color.Transparent,
-                    unfocusedIndicatorColor = Color.Transparent,
-                    disabledIndicatorColor = Color.Transparent,
-                ),
-                modifier = Modifier
-                    .padding(12.dp, 16.dp)
-                    .fillMaxWidth(),
-                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
-                textStyle = LocalTextStyle.current.copy(color = White)
-            )
-            LazyColumn {
-                items(10) { index ->
-                    UserCard(
-                        userName = "User $index",
-                        userBlood = "O+",
-                        userDivision = "Division $index",
-                        userDistrict = "District $index",
-                        userPhone = "123-456-7890",
-                    )
-                }
             }
         }
     }

@@ -61,7 +61,6 @@ fun ContactUsScreen() {
         }
     }
 }
-
 @Composable
 fun AppInfoItem(text1: String = "", text2: String = "", icon: Int = 0) {
     Row(

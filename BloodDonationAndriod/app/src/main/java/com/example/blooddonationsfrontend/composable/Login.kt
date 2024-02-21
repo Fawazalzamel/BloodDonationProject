@@ -71,7 +71,7 @@ fun LoginScreen(onSignIn: () -> Unit) {
         ) {
             Text(
                 text = "Login",
-                color = Color.White
+                color = Color.Black
             )
         }
 

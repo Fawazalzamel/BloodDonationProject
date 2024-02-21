@@ -78,11 +78,10 @@ fun ForgotPasswordScreen() {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(40.dp)
-                .padding(top = 16.dp)
         ) {
             Text(
                 text = stringResource(id = R.string.forgot_password),
-                color = Color.DarkGray
+                color = Color.Black
             )
         }
 
@@ -100,7 +99,7 @@ fun ForgotPasswordScreen() {
             ) {
                 Text(
                     text = stringResource(id = R.string.go_back),
-                    color = Color.DarkGray
+                    color = Color.Black
                 )
             }
         }
