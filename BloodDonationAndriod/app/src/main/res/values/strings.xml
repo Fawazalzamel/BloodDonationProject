@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">BloodDonationsFrontEnd</string>
+    <string name="bottomBar">BloodDonationFrontEnd</string>
+    <string name="open">strings</string>
+    <string name="close">string\n</string>
+    <string name="forgot_password">forgot</string>
+    <string name="enter_email">email\n</string>
+    <string name="go_back">go back\n</string>
 </resources>

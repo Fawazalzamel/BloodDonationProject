@@ -1,4 +1,4 @@
-package com.example.blooddonationsfrontend.data
+package com.example.blooddonationsfrontend.data.model
 
 import com.example.blooddonationsfrontend.utils.enums.BloodTypes
 import com.example.blooddonationsfrontend.utils.enums.Gender

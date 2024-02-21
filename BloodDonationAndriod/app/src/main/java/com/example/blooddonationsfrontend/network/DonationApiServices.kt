@@ -3,7 +3,7 @@ package com.example.blooddonationsfrontend.network
 import com.example.blooddonationsfrontend.data.AccountPage
 import com.example.blooddonationsfrontend.data.DonationRequest
 import com.example.blooddonationsfrontend.data.SigninRequest
-import com.example.blooddonationsfrontend.data.User
+import com.example.blooddonationsfrontend.data.model.User
 import com.example.blooddonationsfrontend.data.response.TokenResponse
 import com.example.blooddonationsfrontend.utils.Constants
 import retrofit2.Response

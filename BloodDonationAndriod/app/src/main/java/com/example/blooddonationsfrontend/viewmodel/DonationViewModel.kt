@@ -10,7 +10,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.blooddonationsfrontend.data.AccountPage
 import com.example.blooddonationsfrontend.data.DonationRequest
 import com.example.blooddonationsfrontend.data.SigninRequest
-import com.example.blooddonationsfrontend.data.User
+import com.example.blooddonationsfrontend.data.model.User
 import com.example.blooddonationsfrontend.data.response.TokenResponse
 import com.example.blooddonationsfrontend.network.DonationApiServices
 import com.example.blooddonationsfrontend.network.RetrofitHelper
