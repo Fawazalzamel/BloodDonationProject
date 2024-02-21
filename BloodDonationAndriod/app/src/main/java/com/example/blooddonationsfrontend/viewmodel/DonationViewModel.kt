@@ -22,6 +22,7 @@ class DonationViewModel : ViewModel() {
     private val apiService = RetrofitHelper.getInstance().create(DonationApiServices::class.java)
     var myToken: TokenResponse? by mutableStateOf(null)
     var user: User? by mutableStateOf(null)
+    var donationsList: List<DonationRequest>? by mutableStateOf(null)
     var context: Context? = null
 
 
@@ -85,6 +86,31 @@ class DonationViewModel : ViewModel() {
 
      }
     }
+
+
+    fun getAllDonations(){
+        viewModelScope.launch {
+            try {
+                 donationsList=apiService.getDonations()
+
+            }catch (e:Exception){
+
+            }
+        }
+    }
+    // review this
+
+//    fun deleteRequest(deleteId:Int){
+//        viewModelScope.launch {
+//            val response = apiService.deleteRequest(deleteId)
+//            if (response.isSuccessful){
+//
+//            }else{
+//
+//            }
+//        }
+//    }
+//Don't forget to add it to the request page
 
 
     fun updateAccountPage(username: String, password: String, email: String,phoneNumber: String, nav: () -> Unit) {

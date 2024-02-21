@@ -10,8 +10,8 @@ class Constants {
         const val authorization = "/auth"
         const val updateEndpoints = "/{id}/updateProfile"
         const val requestEndpoint = "/donation/create"
-
+        const val getDonationsEndpoint="getAllRequests"
+//        const val deleteRequestEndpoint="/{id}/delete"
         //create logout
-
     }
 }
