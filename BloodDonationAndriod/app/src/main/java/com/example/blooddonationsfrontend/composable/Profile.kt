@@ -69,6 +69,17 @@ fun UserProfileScreen() {
                 color = Color.Black
             )
         }
+        Button(
+            onClick = { /* Handle logout button click */ },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(40.dp)
+        ) {
+            Text(
+                text = "LOGOUT",
+                color = Color.Black
+            )
+        }
     }
 }
 

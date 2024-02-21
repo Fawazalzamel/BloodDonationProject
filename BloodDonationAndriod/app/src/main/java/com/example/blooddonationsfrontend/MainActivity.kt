@@ -1,6 +1,5 @@
 package com.example.blooddonationsfrontend
 
-import FilterMenuExample
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -27,19 +26,21 @@ import com.example.blooddonationsfrontend.ui.theme.BloodDonationsFrontEndTheme
 import com.example.blooddonationsfrontend.viewmodel.DonationViewModel
 import com.google.android.material.navigation.NavigationView
 import androidx.compose.material3.Text
+import androidx.navigation.compose.rememberNavController
 
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            FilterMenuExample()
+//            FilterMenuExample()
             BloodDonationsFrontEndTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+
                 }
             }
         }
@@ -62,3 +63,5 @@ fun GreetingPreview() {
     }
 
 }
+
+

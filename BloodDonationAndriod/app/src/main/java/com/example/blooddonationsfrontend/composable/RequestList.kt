@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun RequestList() {
+fun RequestList(onClick: (Int) -> Unit) {
     val searchText = remember { mutableStateOf("") }
 
     Column(modifier = Modifier.fillMaxSize()) {
@@ -49,9 +49,7 @@ fun RequestList() {
                 UserCard(
                     userName = "User $index",
                     userBlood = "O+",
-                    userDivision = "Division $index",
-                    userDistrict = "District $index",
-                    userPhone = "123-456-7890",
+                    userPhone = "123-456-7890"
                 )
             }
         }
@@ -59,9 +57,9 @@ fun RequestList() {
 }
 
 
-
-@Preview
-@Composable
-fun RequestListPreview() {
-    RequestList()
-}
+//
+//@Preview
+//@Composable
+//fun RequestListPreview() {
+//    RequestList(onClick)
+//}
