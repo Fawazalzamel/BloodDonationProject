@@ -10,7 +10,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.blooddonationsfrontend.ui.theme.BloodDonationsFrontEndTheme
+import com.example.blooddonationsfrontend.utils.enums.BloodTypes
+import com.example.blooddonationsfrontend.utils.enums.DonationTypes
+import com.example.blooddonationsfrontend.utils.enums.Gender
+import com.example.blooddonationsfrontend.utils.enums.Status
 import com.example.blooddonationsfrontend.viewmodel.DonationViewModel
 
 class MainActivity : ComponentActivity() {
@@ -23,6 +28,25 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    val viewModel: DonationViewModel = viewModel()
+//                    viewModel.updateAccountPage(
+//                        "Nada", "987", "Nadaa@gmail.com", "635367372"
+//                                    )
+//                    viewModel.signin(
+//                        "razan",
+//                        "1234"
+//                    )
+                    viewModel.signup(
+                        "razan2",
+                        "1234",
+                        "Razan Alshatti",
+                        "razan@gmail.com",
+                        "7486526835",
+                        "AB_NEGATIVE",
+                        "6563253",
+                        23,
+                        "FEMALE"
+                    )
                 }
             }
         }

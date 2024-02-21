@@ -14,8 +14,6 @@ import com.example.blooddonationsfrontend.data.User
 import com.example.blooddonationsfrontend.data.response.TokenResponse
 import com.example.blooddonationsfrontend.network.DonationApiServices
 import com.example.blooddonationsfrontend.network.RetrofitHelper
-import com.example.blooddonationsfrontend.utils.enums.BloodTypes
-import com.example.blooddonationsfrontend.utils.enums.Gender
 import kotlinx.coroutines.launch
 
 class DonationViewModel : ViewModel() {
@@ -24,17 +22,16 @@ class DonationViewModel : ViewModel() {
     var user: User? by mutableStateOf(null)
     var context: Context? = null
 
-
     fun signup(
         username: String,
         password: String,
         fullName: String,
         email: String,
         phoneNumber: String,
-        bloodType: BloodTypes,
+        bloodType: String,
         civilId: String,
         age: Int,
-        gender: Gender,
+        gender: String,
     ) {
         viewModelScope.launch {
             try {
@@ -44,15 +41,15 @@ class DonationViewModel : ViewModel() {
                         phoneNumber, bloodType, civilId, age, gender, null
                     )
                 )
-                myToken = response.body()
+                println("Profile created $response")
             } catch (e: Exception) {
-                println("Error $e")
+                println("Error ${e.message} ${e.cause}")
             }
 
         }
     }
 
-    fun signin(username: String, password: String, nav: () -> Unit) {
+    fun signin(username: String, password: String, nav: () -> Unit = {}) {
         viewModelScope.launch {
             try {
                 val response = apiService.signin(
@@ -61,6 +58,7 @@ class DonationViewModel : ViewModel() {
                     )
                 )
                 myToken = response.body()
+                println("Token ${myToken?.token}")
             } catch (e: Exception) {
                 println("Error $e")
             } finally {
@@ -74,32 +72,42 @@ class DonationViewModel : ViewModel() {
         }
     }
 
+    // ???????????????????
+    fun requestDonation(donationRequest: DonationRequest) {
+        viewModelScope.launch {
+            try {
+                val response = apiService.donationRequest(donationRequest)
 
-    fun requestDonation(donationRequest: DonationRequest){
-    viewModelScope.launch {
-        try {
-            val response = apiService.donationRequest(donationRequest)
-        } catch (e: Exception) {
+            } catch (e: Exception) {
+                println("Error $e")
+
+            }
 
         }
-
-     }
     }
 
 
-    fun updateAccountPage(username: String, password: String, email: String,phoneNumber: String, nav: () -> Unit) {
+    fun updateAccountPage(
+        username: String,
+        password: String,
+        email: String,
+        phoneNumber: String,
+        //nav: () -> Unit
+    ) {
         viewModelScope.launch {
             try {
                 val response = apiService.updateAccount(
                     token = myToken?.getBearerToken(),
                     accountPage = AccountPage(
-                    username,password,email,phoneNumber)
+                        username, password, email, phoneNumber
+                    )
                 )
+                println("Profile updated $response")
             } catch (e: Exception) {
                 println("Error $e")
             } finally {
                 getAccount()
-                nav()
+                //nav()
             }
 
 
