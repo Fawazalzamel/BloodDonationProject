@@ -30,7 +30,7 @@ fun MyScreen() {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "My App") },
+                title = { Text(text = "tbara3") },
                 navigationIcon = {
                     IconButton(onClick = { /* Handle navigation icon click */ }) {
                         Icon(
@@ -41,8 +41,15 @@ fun MyScreen() {
                     }
                 },
                 actions = {
-                    // You can add additional actions here if needed
+                    IconButton(onClick = { /* Handle search action */ }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.powerr),
+                            contentDescription = "Log out",
+                            tint = Color.LightGray // Change the color here
+                        )
+                    }
                 }
+
             )
         },
         content = {

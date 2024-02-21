@@ -76,7 +76,7 @@ fun LoginScreen() {
         ) {
             Text(
                 text = "Login",
-                color = Color.White
+                color = Color.Black
             )
         }
 
