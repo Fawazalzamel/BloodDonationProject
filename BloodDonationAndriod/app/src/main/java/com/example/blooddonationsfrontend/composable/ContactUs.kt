@@ -36,7 +36,7 @@ fun ContactUsScreen() {
     ) {
         item {
             Image(
-                painter = painterResource(id = R.drawable.blood_donation),
+                painter = painterResource(id = R.drawable.bloodtest),
                 contentDescription = "Your Image",
                 modifier = Modifier
                     .fillMaxWidth()
