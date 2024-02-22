@@ -1,5 +1,6 @@
 package com.example.blooddonationsfrontend.composable
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -24,7 +25,8 @@ import com.example.blooddonationsfrontend.R
 fun UserCard(
     userName: String,
     userBlood: String,
-    userPhone: String
+    userPhone: String,
+    onCardClick: () -> Unit
 ) {
     Card(
         //backgroundColor = Color.LightGray,
@@ -32,7 +34,7 @@ fun UserCard(
         // elevation = 8.dp,
         modifier = Modifier
             .padding(2.dp)
-            .height(150.dp)
+            .height(150.dp).clickable { onCardClick()}
             //.align(LineHeightStyle.Alignment.Top)
     ) {
         Column(modifier = Modifier.padding(7.dp)) {
@@ -70,16 +72,7 @@ fun UserCard(
                         .weight(0.2f)
                 )
             }
+
         }
     }
-}
-
-@Preview
-@Composable
-fun UserCardPagePreview() {
-    UserCard(
-        userName = "Maha Awadh",
-        userBlood = "A+",
-        userPhone = "123-456-7890"
-    )
 }

@@ -1,44 +1,43 @@
 package com.example.blooddonationsfrontend.composable
 
 import LoginScreen
+import android.annotation.SuppressLint
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.blooddonationsfrontend.utils.Routes
 
+@SuppressLint("ComposableDestinationInComposeScope")
 @Composable
-fun NavigationGraph(navController: NavHostController = rememberNavController()) {
+fun navigation() {
+    val navController = rememberNavController()
+
     NavHost(
         navController = navController,
-        startDestination = Routes.signinRoute
+        startDestination = Routes.loginRoute
+
     ) {
-        composable(Routes.signinRoute) {
-            LoginScreen({})
+
+        composable(Routes.loginRoute) {
+            LoginScreen(onLogin = {
+                navController.navigate(Routes.requestRoute)
+            })
         }
 
-        composable(Routes.signUpRoute) {
-            RegistrationScreen()
+        composable(Routes.requestRoute) {
+            RequestList(onList = {
+                navController.navigate(Routes.UserCardRoute)
+            })
         }
-        composable(Routes.donationRequestRoute) {
 
+        composable(Routes.requestRoute) {
+            RequestList(onList = {
+                navController.navigate(Routes.donationRequestRoute)
+            })
         }
-        composable(Routes.UserProfileRoute) {
 
-        }
-        composable(Routes.ForgetScreen) {
-
-        }
-        composable(Routes.UserCardRoute) {
-
-        }
-        composable(Routes.MenuRoute) {
-        }
-        composable(Routes.LocationScreenRoute) {
-
-        }
-        composable(Routes.contactUsRoutes) {
-        }
     }
+
+
 }

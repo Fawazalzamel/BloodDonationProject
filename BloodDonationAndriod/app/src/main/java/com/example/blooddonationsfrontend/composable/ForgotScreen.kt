@@ -38,7 +38,7 @@ fun ForgotPasswordScreen() {
             .padding(7.dp)
             .padding(top = 10.dp)
     ) {
-        // Image replaced the LottieAnimationView
+
         Image(
             painter = painterResource(id = R.drawable.blood_donation),
             contentDescription = "image",
