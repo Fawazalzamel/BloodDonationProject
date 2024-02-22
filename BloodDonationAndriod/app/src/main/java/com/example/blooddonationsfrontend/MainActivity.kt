@@ -1,7 +1,9 @@
 package com.example.blooddonationsfrontend
 
+import ForgotPasswordScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -27,7 +29,14 @@ import com.example.blooddonationsfrontend.ui.theme.BloodDonationsFrontEndTheme
 import com.example.blooddonationsfrontend.viewmodel.DonationViewModel
 import com.google.android.material.navigation.NavigationView
 import androidx.compose.material3.Text
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.blooddonationsfrontend.composable.AppNavigation
+import com.example.blooddonationsfrontend.composable.RequestList
+import com.example.blooddonationsfrontend.composable.UserProfileScreen
 
 class MainActivity : ComponentActivity() {
 
@@ -41,25 +50,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val viewModel: DonationViewModel = viewModel()
-//                    viewModel.updateAccountPage(
-//                        "Nada", "987", "Nadaa@gmail.com", "635367372"
-//                                    )
-//                    viewModel.signin(
-//                        "razan",
-//                        "1234"
-//                    )
-                    viewModel.signup(
-                        "razan2",
-                        "1234",
-                        "Razan Alshatti",
-                        "razan@gmail.com",
-                        "7486526835",
-                        "AB_NEGATIVE",
-                        "6563253",
-                        23,
-                        "FEMALE"
-                    )
+
+                    AppNavigation()
+
                 }
             }
         }

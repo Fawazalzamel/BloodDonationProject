@@ -1,14 +1,11 @@
 package com.example.blooddonationsfrontend.composable
 
+import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -18,10 +15,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.blooddonationsfrontend.R
 
 //@Preview
@@ -131,13 +127,20 @@ import com.example.blooddonationsfrontend.R
 //    }}
 
 
-
-@Preview
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen(navController: NavHostController) {
 
 
-    var title by remember { mutableStateOf("") }
+    var name by remember { mutableStateOf("") }
+    var phoneNumber by remember { mutableStateOf("") }
+    var bloodType by remember { mutableStateOf("") }
+    var civilId by remember { mutableStateOf("") }
+    var usernsme by remember { mutableStateOf("") }
+    var Email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+    var age by remember { mutableStateOf("") }
+    var gender by remember { mutableStateOf("") }
+
 
     LazyColumn(
         modifier = Modifier
@@ -148,37 +151,33 @@ fun ProfileScreen() {
     ) {
         item {
             Image(
-                painter = painterResource(id = R.drawable.blood_donation), // Replace with your image
+                painter = painterResource(id = R.drawable.signup), // Replace with your image
                 contentDescription = null, // Provide a content description if necessary
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(250.dp),
                 alignment = Alignment.Center
             )
+
+
+            InputField(value = name, onValueChange = { name = it }, label = "full name")
+            InputField(value = phoneNumber, onValueChange = { phoneNumber = it  }, label = "phone number")
+            InputField(value = bloodType, onValueChange = { bloodType= it  }, label = "blood type")
+            InputField(value = civilId, onValueChange = { civilId = it  }, label = "civil id")
+            InputField(value = usernsme, onValueChange = { usernsme = it  }, label = "username")
+            InputField(value = Email, onValueChange = { Email = it  }, label = "email")
+            InputField(value = password, onValueChange = {password= it   }, label = "password")
+            InputField(value = age, onValueChange = { age= it  }, label = "age")
+            InputField(value = gender, onValueChange = {  gender= it }, label = "gender")
+
         }
-        items(9) { index ->
-            InputField(
-                value = title,
-                onValueChange = { title = it },
-                label = when (index) {
-                    0 -> "Full name"
-                    1 -> "Phone Number"
-                    2 -> "Blood Type"
-                    3 -> "Civil Id"
-                    4 -> "Username"
-                    5 -> "Email"
-                    6 -> "Password"
-                    7 -> "Age"
-                    8 -> "Gender"
-                    else -> ""
-                }
-            )
-        }
+
+
 
         // Sign up button
         item {
             Button(
-                onClick = { /* Handle sign up button click */ },
+                onClick = { navController.navigate("SignUp") },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(40.dp)

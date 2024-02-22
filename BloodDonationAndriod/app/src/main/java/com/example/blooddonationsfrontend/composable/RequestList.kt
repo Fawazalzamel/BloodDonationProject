@@ -17,12 +17,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.LightGray
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 
 
 @Composable
-fun RequestList(onClick: (Int) -> Unit) {
+fun RequestList(onClick: NavHostController) {
     val searchText = remember { mutableStateOf("") }
 
     Column(modifier = Modifier.fillMaxSize()) {
