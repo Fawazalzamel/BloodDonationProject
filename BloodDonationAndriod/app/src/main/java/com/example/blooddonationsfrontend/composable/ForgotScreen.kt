@@ -23,13 +23,14 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.blooddonationsfrontend.R
 import com.example.blooddonationsfrontend.composable.InputField
-@Preview
-@Composable
-fun ForgotPasswordScreen() {
 
-    var title by remember { mutableStateOf("") }
+@Composable
+fun ForgotPasswordScreen(navController: NavController) {
+
+    var email by remember { mutableStateOf("") }
 
 
     Column(
@@ -38,9 +39,9 @@ fun ForgotPasswordScreen() {
             .padding(7.dp)
             .padding(top = 10.dp)
     ) {
-        // Image replaced the LottieAnimationView
+
         Image(
-            painter = painterResource(id = R.drawable.blood_donation),
+            painter = painterResource(id = R.drawable.bloodtest),
             contentDescription = "image",
             modifier = Modifier
                 .fillMaxWidth()
@@ -50,8 +51,8 @@ fun ForgotPasswordScreen() {
 
 
         InputField(
-            value = title,
-            onValueChange = { title = it },
+            value = email,
+            onValueChange = { email = it },
             label = "Email"
         )
 
@@ -105,3 +106,4 @@ fun ForgotPasswordScreen() {
         }
     }
 }
+
