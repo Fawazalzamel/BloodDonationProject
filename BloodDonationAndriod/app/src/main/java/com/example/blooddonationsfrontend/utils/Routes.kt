@@ -18,5 +18,6 @@ class Routes {
         const val ForgetScreen="forget_screen"
         const val contactUsRoutes="contact_us"
         const val BottomRoute="bottom_Bar"
+        const val LocationRoute=""
     }
 }

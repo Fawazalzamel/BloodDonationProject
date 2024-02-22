@@ -42,6 +42,14 @@ fun navigation() {
         composable(Routes.donationRequestRoute){
             MyformRequest()
         }
+        composable(Routes.BottomRoute){
+            RequestList(onList = {
+            /*TODO*/
+            navController.navigate(Routes.UserCardRoute)}
+            , toMyForm = {navController.navigate(Routes.o)}) {
+
+            }
+        }
 
 
 
