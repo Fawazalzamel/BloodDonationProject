@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.blooddonationsfrontend.ui.theme.BloodDonationsFrontEndTheme
 import com.example.blooddonationsfrontend.viewmodel.DonationViewModel
 import com.google.android.material.navigation.NavigationView
@@ -40,7 +41,25 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
+                    val viewModel: DonationViewModel = viewModel()
+//                    viewModel.updateAccountPage(
+//                        "Nada", "987", "Nadaa@gmail.com", "635367372"
+//                                    )
+//                    viewModel.signin(
+//                        "razan",
+//                        "1234"
+//                    )
+                    viewModel.signup(
+                        "razan2",
+                        "1234",
+                        "Razan Alshatti",
+                        "razan@gmail.com",
+                        "7486526835",
+                        "AB_NEGATIVE",
+                        "6563253",
+                        23,
+                        "FEMALE"
+                    )
                 }
             }
         }
@@ -61,7 +80,4 @@ fun GreetingPreview() {
     BloodDonationsFrontEndTheme {
         Greeting("Android")
     }
-
 }
-
-
