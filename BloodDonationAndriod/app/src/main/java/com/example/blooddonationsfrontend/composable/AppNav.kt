@@ -12,8 +12,8 @@ fun AppNavigation(){
 
     NavHost(navController, startDestination = "SignUp"){
         composable("SignUp"){ ProfileScreen(navController) }
-        composable("RequestList"){ RequestList(navController) }
-        composable("RequestList"){ RequestList(navController) }
+       // composable("RequestList"){ RequestList(navController) }
+       // composable("RequestList"){ RequestList(navController) }
         composable("UserProfileScreen"){ UserProfileScreen(navController) }
 
     }
