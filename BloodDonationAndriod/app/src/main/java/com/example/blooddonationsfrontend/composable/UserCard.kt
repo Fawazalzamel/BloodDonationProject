@@ -20,7 +20,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.blooddonationsfrontend.R
 
-
 @Composable
 fun UserCard(
     userName: String,
@@ -45,7 +44,7 @@ fun UserCard(
                 color = Color.Gray,
                 fontSize = 20.sp
             )
-            Spacer(modifier = Modifier.height(26.dp))
+            Spacer(modifier = Modifier.height(20.dp))
 
             Text(
                 text = userBlood,
@@ -65,10 +64,10 @@ fun UserCard(
                     modifier = Modifier.weight(1f)
                 )
                 Image(
-                    painter = painterResource(id = R.drawable.blood_test),
+                    painter = painterResource(id = R.drawable.homepage),
                     contentDescription = null,
                     modifier = Modifier
-                        .size(160.dp)
+                        .size(400.dp)
                         .weight(0.2f)
                 )
             }
