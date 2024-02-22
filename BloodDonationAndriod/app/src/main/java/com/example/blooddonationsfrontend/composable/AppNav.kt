@@ -1,5 +1,6 @@
 package com.example.blooddonationsfrontend.composable
 
+import BottomBar
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -16,6 +17,13 @@ fun AppNavigation(){
         composable("UserProfileScreen"){ UserProfileScreen(navController) }
 
     }
+
+    BottomBar(
+        onHomeClick = { navController.navigate("request_list") },
+        onResearchClick = { /* Handle research click */ },
+        onProfileClick = { /* Handle profile click */ },
+        onNeededClick = { /* Handle needed click */ },
+    )
 }
 
 
