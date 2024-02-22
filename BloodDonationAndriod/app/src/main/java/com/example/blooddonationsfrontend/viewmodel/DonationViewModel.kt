@@ -76,8 +76,8 @@ class DonationViewModel : ViewModel() {
         }
     }
 
-    // ???????????????????
-    fun requestDonation(donationRequest: DonationRequest) {
+
+    fun donationRequest(donationRequest: DonationRequest) {
         viewModelScope.launch {
             try {
                 val response = apiService.donationRequest(donationRequest)
@@ -128,28 +128,15 @@ class DonationViewModel : ViewModel() {
             }
         }
     }
-    // review this
-
-//    fun deleteRequest(deleteId:Int){
-//        viewModelScope.launch {
-//            val response = apiService.deleteRequest(deleteId)
-//            if (response.isSuccessful){
-//
-//            }else{
-//
-//            }
-//        }
-//    }
-//Don't forget to add it to the request page
 
 
+    //statusUpdate logic
 
-    fun saveToken() {
-        val sharedPref = context?.getSharedPreferences("tokenFile", Context.MODE_PRIVATE)
-        sharedPref?.edit()?.putString("MY_TOKEN", myToken.toString())?.apply()
+    fun statusUpdate(){
+        viewModelScope
     }
 
-    fun getAccount() {
+    fun getAccount() {//profile page
         viewModelScope.launch {
             try {
                 val response = apiService.getAccount(token = myToken?.getBearerToken())
@@ -159,6 +146,14 @@ class DonationViewModel : ViewModel() {
             }
         }
     }
+
+
+    fun saveToken() {
+        val sharedPref = context?.getSharedPreferences("tokenFile", Context.MODE_PRIVATE)
+        sharedPref?.edit()?.putString("MY_TOKEN", myToken.toString())?.apply()
+    }
+
+    //filter logic
 
 
 }
