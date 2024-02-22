@@ -36,7 +36,34 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
+                    val viewModel: DonationViewModel = viewModel()
+                    viewModel.requestDonation(
+                        "352672",
+                        "A_POSITIVE",
+                        "BLOOD"
+                    )
+//                    viewModel.updateAccountPage(
+//                        "Nada", "987", "Nadaa@gmail.com", "635367372"
+//                                    )
+//                    viewModel.signin(
+//                        "razan",
+//                        "1234"
+//                    )
+//                    viewModel.signup(
+//                        "razan2",
+//                        "1234",
+//                        "Razan Alshatti",
+//                        "razan@gmail.com",
+//                        "7486526835",
+//                        "AB_NEGATIVE",
+//                        "6563253",
+//                        23,
+//                        "FEMALE"
+//                    )
+
+
                     navigation()
+
 
                 }
             }
