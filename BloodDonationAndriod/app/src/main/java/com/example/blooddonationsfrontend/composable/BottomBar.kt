@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
-
+//
 //package com.example.blooddonationsfrontend.composable
 //
 //import androidx.compose.foundation.layout.Row
@@ -74,18 +74,23 @@ fun BottomBar(onHomeClick: () -> Unit,
         Row(Modifier.weight(1f)) {
             IconButton(onClick = onHomeClick, modifier = Modifier.weight(1f)) {
                 Icon(Icons.Filled.Home, contentDescription = "Home")
+                // nbe
             }
             IconButton(onClick = onResearchClick, modifier = Modifier.weight(1f)) {
                 Icon(Icons.Filled.Create, contentDescription = "Research")
+
             }
             IconButton(onClick = onNeededClick, modifier = Modifier.weight(1f)) {
                 Icon(Icons.Filled.LocationOn, contentDescription = "Location")
+                //nbe
             }
             IconButton(onClick = onProfileClick, modifier = Modifier.weight(1f)) {
                 Icon(Icons.Filled.AccountCircle, contentDescription = "Profile")
+                //nbe
             }
         }
     }
+
 }
 
 

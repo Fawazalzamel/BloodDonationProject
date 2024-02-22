@@ -1,6 +1,7 @@
 package com.example.blooddonationsfrontend.composable
 
 import LoginScreen
+import RequestList
 import android.annotation.SuppressLint
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
@@ -28,16 +29,34 @@ fun navigation() {
         composable(Routes.requestRoute) {
             RequestList(onList = {
                 navController.navigate(Routes.UserCardRoute)
-            })
+            }, toMyForm = {navController.navigate(Routes.donationRequestRoute)})
         }
-
+        composable(Routes.donationRequestRoute){
+            MyformRequest()
+        }
         composable(Routes.requestRoute) {
             RequestList(onList = {
-                navController.navigate(Routes.donationRequestRoute)
-            })
+                navController.navigate(Routes.UserCardRoute)
+            }, toMyForm = {navController.navigate(Routes.donationRequestRoute)})
+        }
+        composable(Routes.donationRequestRoute){
+            MyformRequest()
+        }
+        composable(Routes.BottomRoute){
+            RequestList(onList = {
+            /*TODO*/
+            navController.navigate(Routes.UserCardRoute)}
+            , toMyForm = {navController.navigate(Routes.o)}) {
+
+            }
         }
 
-    }
 
 
-}
+
+
+
+
+            }
+        }
+
