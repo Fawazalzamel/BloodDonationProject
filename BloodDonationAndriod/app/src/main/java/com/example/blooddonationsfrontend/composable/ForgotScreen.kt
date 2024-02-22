@@ -23,13 +23,14 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.blooddonationsfrontend.R
 import com.example.blooddonationsfrontend.composable.InputField
-@Preview
-@Composable
-fun ForgotPasswordScreen() {
 
-    var title by remember { mutableStateOf("") }
+@Composable
+fun ForgotPasswordScreen(navController: NavController) {
+
+    var email by remember { mutableStateOf("") }
 
 
     Column(
@@ -50,8 +51,8 @@ fun ForgotPasswordScreen() {
 
 
         InputField(
-            value = title,
-            onValueChange = { title = it },
+            value = email,
+            onValueChange = { email = it },
             label = "Email"
         )
 
@@ -105,3 +106,4 @@ fun ForgotPasswordScreen() {
         }
     }
 }
+
