@@ -63,7 +63,7 @@ fun UserCard(
                     modifier = Modifier.weight(1f)
                 )
                 Image(
-                    painter = painterResource(id = R.drawable.bloodtest),
+                    painter = painterResource(id = R.drawable.blood_test),
                     contentDescription = null,
                     modifier = Modifier
                         .size(160.dp)

@@ -155,7 +155,7 @@ fun ProfileScreen(navController: NavHostController) {
                 contentDescription = null, // Provide a content description if necessary
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(250.dp),
+                    .height(150.dp),
                 alignment = Alignment.Center
             )
 

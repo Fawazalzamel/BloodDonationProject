@@ -15,10 +15,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.blooddonationsfrontend.R
-
 @Composable
 fun UserProfileScreen(navController: NavHostController) {
 //navhost,navcontroller
@@ -36,7 +36,7 @@ fun UserProfileScreen(navController: NavHostController) {
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.blood_donation), // Replace with your image
+            painter = painterResource(id = R.drawable.bloodtest), // Replace with your image
             contentDescription = "image", // Provide a content description if necessary
             modifier = Modifier
                 .fillMaxWidth()

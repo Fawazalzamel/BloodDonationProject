@@ -41,7 +41,7 @@ fun ForgotPasswordScreen(navController: NavController) {
     ) {
         // Image replaced the LottieAnimationView
         Image(
-            painter = painterResource(id = R.drawable.blood_donation),
+            painter = painterResource(id = R.drawable.bloodtest),
             contentDescription = "image",
             modifier = Modifier
                 .fillMaxWidth()

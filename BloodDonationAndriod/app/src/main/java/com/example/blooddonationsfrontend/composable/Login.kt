@@ -36,7 +36,7 @@ fun LoginScreen() {
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.blood_donation), // Replace with your image
+            painter = painterResource(id = R.drawable.bloodtest), // Replace with your image
             contentDescription = null, // Provide a content description if necessary
             modifier = Modifier
                 .fillMaxWidth()
