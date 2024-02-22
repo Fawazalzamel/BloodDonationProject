@@ -1,5 +1,7 @@
 package com.example.blooddonationsfrontend.utils
 
+import org.checkerframework.common.subtyping.qual.Bottom
+
 class Routes {
     companion object {
         const val signupRoute = "signupRoute"
@@ -15,5 +17,6 @@ class Routes {
         const val LocationScreenRoute="location_screen"
         const val ForgetScreen="forget_screen"
         const val contactUsRoutes="contact_us"
+        const val BottomRoute="bottom_Bar"
     }
 }
