@@ -1,6 +1,6 @@
 package com.example.blooddonationsfrontend.utils.enums
 
-enum class Status {
-    SUPPORT_NEEDED,
-    DONATED
+enum class Status (val type: String){
+    SUPPORT_NEEDED("SUPPORT NEEDED"),
+    DONATED("DONATED")
 }

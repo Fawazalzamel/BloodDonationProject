@@ -10,13 +10,11 @@ import androidx.lifecycle.viewModelScope
 import com.example.blooddonationsfrontend.data.AccountPage
 import com.example.blooddonationsfrontend.data.DonationRequest
 import com.example.blooddonationsfrontend.data.SigninRequest
-import com.example.blooddonationsfrontend.data.User
+//import com.example.blooddonationsfrontend.data.User
 import com.example.blooddonationsfrontend.data.model.User
 import com.example.blooddonationsfrontend.data.response.TokenResponse
 import com.example.blooddonationsfrontend.network.DonationApiServices
 import com.example.blooddonationsfrontend.network.RetrofitHelper
-import com.example.blooddonationsfrontend.utils.enums.BloodTypes
-import com.example.blooddonationsfrontend.utils.enums.Gender
 import kotlinx.coroutines.launch
 
 class DonationViewModel : ViewModel() {
@@ -77,19 +75,33 @@ class DonationViewModel : ViewModel() {
         }
     }
 
-    // ???????????????????
-    fun requestDonation(donationRequest: DonationRequest) {
+    fun requestDonation(
+        fileNumber: String,
+        bloodTypes: String,
+        donationTypes: String
+        ) {
         viewModelScope.launch {
             try {
-                val response = apiService.donationRequest(donationRequest)
+                val response = apiService.donationRequest(
+                    //  token = myToken?.getBearerToken(),
+                    donationRequest = DonationRequest(
+                        null,
+                        fileNumber,
+                        bloodTypes,
+                        donationTypes,
+                        null
+                    )
+                )
+                println("Request created $response")
 
             } catch (e: Exception) {
                 println("Error $e")
 
-        }
+            }
 
-     }
+        }
     }
+
 
 
     fun updateAccountPage(
@@ -119,12 +131,12 @@ class DonationViewModel : ViewModel() {
         }
     }
 
-    fun getAllDonations(){
+    fun getAllDonations() {
         viewModelScope.launch {
             try {
-                donationsList=apiService.getDonations()
+                donationsList = apiService.getDonations()
 
-            }catch (e:Exception){
+            } catch (e: Exception) {
 
             }
         }
@@ -142,7 +154,6 @@ class DonationViewModel : ViewModel() {
 //        }
 //    }
 //Don't forget to add it to the request page
-
 
 
     fun saveToken() {

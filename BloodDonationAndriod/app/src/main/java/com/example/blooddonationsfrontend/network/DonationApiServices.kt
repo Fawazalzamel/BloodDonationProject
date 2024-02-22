@@ -8,12 +8,10 @@ import com.example.blooddonationsfrontend.data.response.TokenResponse
 import com.example.blooddonationsfrontend.utils.Constants
 import retrofit2.Response
 import retrofit2.http.Body
-import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.PUT
-import retrofit2.http.Path
 
 interface DonationApiServices {
     @POST(Constants.signupEndpoint)

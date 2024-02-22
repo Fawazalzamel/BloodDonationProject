@@ -1,8 +1,8 @@
 package com.example.blooddonationsfrontend.utils.enums
 
-enum class DonationTypes {
-    BLOOD,
-    KIDNEY,
-    LIVER,
+enum class DonationTypes (val type: String){
+    BLOOD("BLOOD"),
+    KIDNEY("KIDNEY"),
+    LIVER("LIVER"),
 
 }

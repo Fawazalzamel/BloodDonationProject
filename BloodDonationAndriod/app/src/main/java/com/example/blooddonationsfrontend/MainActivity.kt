@@ -21,11 +21,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.blooddonationsfrontend.ui.theme.BloodDonationsFrontEndTheme
 import com.example.blooddonationsfrontend.viewmodel.DonationViewModel
-import com.google.android.material.navigation.NavigationView
 import androidx.compose.material3.Text
 import androidx.navigation.compose.rememberNavController
 
@@ -42,6 +40,11 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val viewModel: DonationViewModel = viewModel()
+                    viewModel.requestDonation(
+                        "352672",
+                        "A_POSITIVE",
+                        "BLOOD"
+                    )
 //                    viewModel.updateAccountPage(
 //                        "Nada", "987", "Nadaa@gmail.com", "635367372"
 //                                    )
@@ -49,17 +52,17 @@ class MainActivity : ComponentActivity() {
 //                        "razan",
 //                        "1234"
 //                    )
-                    viewModel.signup(
-                        "razan2",
-                        "1234",
-                        "Razan Alshatti",
-                        "razan@gmail.com",
-                        "7486526835",
-                        "AB_NEGATIVE",
-                        "6563253",
-                        23,
-                        "FEMALE"
-                    )
+//                    viewModel.signup(
+//                        "razan2",
+//                        "1234",
+//                        "Razan Alshatti",
+//                        "razan@gmail.com",
+//                        "7486526835",
+//                        "AB_NEGATIVE",
+//                        "6563253",
+//                        23,
+//                        "FEMALE"
+//                    )
                 }
             }
         }
