@@ -1,3 +1,4 @@
+
 package com.example.blooddonationsfrontend.composable
 
 import androidx.compose.foundation.layout.Column
@@ -86,3 +87,4 @@ fun LocationCard(name: String, Time: String, phone: String) {
     }
 
 }
+

@@ -10,7 +10,10 @@ import androidx.lifecycle.viewModelScope
 import com.example.blooddonationsfrontend.data.AccountPage
 import com.example.blooddonationsfrontend.data.DonationRequest
 import com.example.blooddonationsfrontend.data.SigninRequest
+
 //import com.example.blooddonationsfrontend.data.User
+
+
 import com.example.blooddonationsfrontend.data.model.User
 import com.example.blooddonationsfrontend.data.response.TokenResponse
 import com.example.blooddonationsfrontend.network.DonationApiServices
@@ -75,11 +78,16 @@ class DonationViewModel : ViewModel() {
         }
     }
 
+
     fun requestDonation(
         fileNumber: String,
         bloodTypes: String,
         donationTypes: String
         ) {
+
+
+    fun donationRequest(donationRequest: DonationRequest) {
+
         viewModelScope.launch {
             try {
                 val response = apiService.donationRequest(
@@ -141,27 +149,21 @@ class DonationViewModel : ViewModel() {
             }
         }
     }
-    // review this
 
-//    fun deleteRequest(deleteId:Int){
-//        viewModelScope.launch {
-//            val response = apiService.deleteRequest(deleteId)
-//            if (response.isSuccessful){
-//
-//            }else{
-//
-//            }
-//        }
-//    }
-//Don't forget to add it to the request page
 
 
     fun saveToken() {
         val sharedPref = context?.getSharedPreferences("tokenFile", Context.MODE_PRIVATE)
         sharedPref?.edit()?.putString("MY_TOKEN", myToken.toString())?.apply()
+
+    //statusUpdate logic
+
+    fun statusUpdate(){
+        viewModelScope
+
     }
 
-    fun getAccount() {
+    fun getAccount() {//profile page
         viewModelScope.launch {
             try {
                 val response = apiService.getAccount(token = myToken?.getBearerToken())
@@ -171,6 +173,14 @@ class DonationViewModel : ViewModel() {
             }
         }
     }
+
+
+    fun saveToken() {
+        val sharedPref = context?.getSharedPreferences("tokenFile", Context.MODE_PRIVATE)
+        sharedPref?.edit()?.putString("MY_TOKEN", myToken.toString())?.apply()
+    }
+
+    //filter logic
 
 
 }
