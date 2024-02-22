@@ -1,18 +1,23 @@
 package com.example.blooddonationsfrontend
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.blooddonationsfrontend.composable.RequestList
+import com.example.blooddonationsfrontend.composable.navigation
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.blooddonationsfrontend.ui.theme.BloodDonationsFrontEndTheme
 import com.example.blooddonationsfrontend.composable.AppNavigation
-class MainActivity : ComponentActivity() {
 
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -24,27 +29,10 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    AppNavigation()
+                    navigation()
 
                 }
             }
         }
     }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    BloodDonationsFrontEndTheme {
-        Greeting("Android")
-    }
-
 }

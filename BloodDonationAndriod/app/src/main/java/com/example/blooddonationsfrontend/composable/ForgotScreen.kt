@@ -39,7 +39,7 @@ fun ForgotPasswordScreen(navController: NavController) {
             .padding(7.dp)
             .padding(top = 10.dp)
     ) {
-        // Image replaced the LottieAnimationView
+
         Image(
             painter = painterResource(id = R.drawable.bloodtest),
             contentDescription = "image",
