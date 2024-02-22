@@ -10,6 +10,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.blooddonationsfrontend.data.AccountPage
 import com.example.blooddonationsfrontend.data.DonationRequest
 import com.example.blooddonationsfrontend.data.SigninRequest
+import com.example.blooddonationsfrontend.data.UpdateDonationRequest
 
 //import com.example.blooddonationsfrontend.data.User
 
@@ -24,9 +25,13 @@ class DonationViewModel : ViewModel() {
     private val apiService = RetrofitHelper.getInstance().create(DonationApiServices::class.java)
     var myToken: TokenResponse? by mutableStateOf(null)
     var user: User? by mutableStateOf(null)
-    var donationsList: List<DonationRequest>? by mutableStateOf(null)
+    var donationList by mutableStateOf(listOf<DonationRequest>())
     var context: Context? = null
 
+
+    init {
+        getAllDonations()
+    }
 
     fun signup(
         username: String,
@@ -70,7 +75,10 @@ class DonationViewModel : ViewModel() {
             } finally {
                 if (myToken != null) {
                     saveToken()
-                    getAccount()
+//                    getAccount(username,
+//                        password,
+//                        email,
+//                        phoneNumber)
                     nav()
                 }
             }
@@ -83,33 +91,30 @@ class DonationViewModel : ViewModel() {
         fileNumber: String,
         bloodTypes: String,
         donationTypes: String
-        ) {
+    ) {
+        fun donationRequest(donationRequest: DonationRequest) {
 
-
-    fun donationRequest(donationRequest: DonationRequest) {
-
-        viewModelScope.launch {
-            try {
-                val response = apiService.donationRequest(
-                    //  token = myToken?.getBearerToken(),
-                    donationRequest = DonationRequest(
-                        null,
-                        fileNumber,
-                        bloodTypes,
-                        donationTypes,
-                        null
+            viewModelScope.launch {
+                try {
+                    val response = apiService.donationRequest(
+                        //  token = myToken?.getBearerToken(),
+                        donationRequest = DonationRequest(
+                            null,
+                            fileNumber,
+                            bloodTypes,
+                            donationTypes,
+                            null
+                        )
                     )
-                )
-                println("Request created $response")
+                    println("Request created $response")
 
-            } catch (e: Exception) {
-                println("Error $e")
+                } catch (e: Exception) {
+                    println("Error $e")
 
+                }
             }
-
         }
     }
-
 
 
     fun updateAccountPage(
@@ -131,7 +136,12 @@ class DonationViewModel : ViewModel() {
             } catch (e: Exception) {
                 println("Error $e")
             } finally {
-                getAccount()
+                getAccount(
+                    username,
+                    password,
+                    email,
+                    phoneNumber
+                )
                 //nav()
             }
 
@@ -139,35 +149,65 @@ class DonationViewModel : ViewModel() {
         }
     }
 
+    //////////////////////////////DO IT /////////////////
     fun getAllDonations() {
         viewModelScope.launch {
             try {
-                donationsList = apiService.getDonations()
+//                val response = apiService.getDonations(
+//                    token = myToken?.getBearerToken(),
+//                    donationsList
+//                )
+                var response = apiService.getDonations()
 
+//                donationsList = response
+                donationList = response
+                print("Printing DONTATION LIST")
+                print(donationList)
             } catch (e: Exception) {
 
             }
         }
     }
+///////////////////////
 
-
-
-    fun saveToken() {
-        val sharedPref = context?.getSharedPreferences("tokenFile", Context.MODE_PRIVATE)
-        sharedPref?.edit()?.putString("MY_TOKEN", myToken.toString())?.apply()
 
     //statusUpdate logic
 
-    fun statusUpdate(){
-        viewModelScope
-
-    }
-
-    fun getAccount() {//profile page
+    fun statusUpdate(id: String) {
         viewModelScope.launch {
             try {
-                val response = apiService.getAccount(token = myToken?.getBearerToken())
+                val response = apiService.statusUpdate(
+                    token = myToken?.getBearerToken(),
+                    UpdateDonationRequest(id)
+                )
+                println("Status updated $response")
+            } catch (e: Exception) {
+                println("Error $e")
+            }
+
+        }
+    }
+
+    // not working
+    fun getAccount(
+        username: String,
+        password: String,
+        email: String,
+        phoneNumber: String
+    ) {//profile page
+        viewModelScope.launch {
+            try {
+                val response = apiService.getAccount(
+                    token = myToken?.getBearerToken(),
+                    AccountPage(
+                        username,
+                        password,
+                        email,
+                        phoneNumber
+                    )
+                )
                 user = response.body()
+                println("My profile $response")
             } catch (e: Exception) {
                 println("Error $e")
             }

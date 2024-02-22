@@ -4,6 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.ui.Modifier
+
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Menu
@@ -19,14 +27,11 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+
 import com.example.blooddonationsfrontend.composable.navigation
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.blooddonationsfrontend.ui.theme.BloodDonationsFrontEndTheme
 import com.example.blooddonationsfrontend.viewmodel.DonationViewModel
-import androidx.compose.material3.Text
-import androidx.navigation.compose.rememberNavController
 import com.example.blooddonationsfrontend.ui.theme.BloodDonationsFrontEndTheme
 
 
@@ -42,12 +47,30 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
+
+
                     val viewModel: DonationViewModel = viewModel()
-                    viewModel.requestDonation(
-                        "352672",
-                        "A_POSITIVE",
-                        "BLOOD"
-                    )
+
+                    val donationsTest = viewModel.donationList
+
+                    Button(onClick = {
+                    print(donationsTest)
+                    }) {
+                        Text("Show Data")
+                    }
+
+//                    viewModel.getAccount( username = "nada",
+//                        password = "1234",
+//                        email = "nada@gmail.com",
+//                        phoneNumber = "635526")
+//                    viewModel.statusUpdate(
+//                        id = "4"
+//                    )
+//                    viewModel.requestDonation(
+//                        "352672",
+//                        "A_POSITIVE",
+//                        "BLOOD"
+//                    )
 //                    viewModel.updateAccountPage(
 //                        "Nada", "987", "Nadaa@gmail.com", "635367372"
 //                                    )
@@ -68,7 +91,7 @@ class MainActivity : ComponentActivity() {
 //                    )
 
 
-                    navigation()
+                   // navigation()
 
 
                 }

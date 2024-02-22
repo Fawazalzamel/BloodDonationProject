@@ -7,8 +7,6 @@ import com.example.blooddonationsfrontend.data.UpdateDonationRequest
 import com.example.blooddonationsfrontend.data.model.User
 import com.example.blooddonationsfrontend.data.response.TokenResponse
 import com.example.blooddonationsfrontend.utils.Constants
-import com.example.blooddonationsfrontend.utils.enums.BloodTypes
-import com.example.blooddonationsfrontend.utils.enums.Status
 import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.Body
@@ -44,7 +42,10 @@ interface DonationApiServices {
     suspend fun getDonations():List<DonationRequest>
 
     @GET(Constants.accountEndpoint)
-    suspend fun getAccount(@Header(Constants.authorization) token: String?): Response<User>
+    suspend fun getAccount(
+        @Header(Constants.authorization) token: String?,
+        accountPage: AccountPage
+    ): Response<User>
 
     @GET(Constants.filterEndpoint)
     suspend fun filter(
